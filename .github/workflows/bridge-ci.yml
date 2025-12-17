@@ -8,10 +8,12 @@ on:
 
 jobs:
   hello:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
       - name: Say hello
-        run: echo "HA-Loxone-bridge workflow is running ?"
+        run: |
+          echo "HA-Loxone-bridge workflow is running ?"
+          uname -a
