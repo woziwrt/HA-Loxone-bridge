@@ -1,0 +1,17 @@
+name: Bridge CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Say hello
+        run: echo "HA-Loxone-bridge workflow is running ?"
