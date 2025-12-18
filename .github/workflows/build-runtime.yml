@@ -40,7 +40,6 @@ jobs:
         run: |
           mkdir -p dist
           tar czf dist/ha-loxone-bridge-runtime.tar.gz \
-            Dockerfile \
             docker \
             examples \
             README.md
