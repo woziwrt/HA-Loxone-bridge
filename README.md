@@ -40,15 +40,15 @@ This project was originally designed and tested on a MikroTik RB5009, using Rout
 Conceptually, the equivalent of `docker run` looks like this (simplified):
 
 ```bash
-docker run -d 
-   --name ha-loxone-bridge 
-   -v /path/on/host/main.py:/app/main.py:ro 
-   -e HA_URL=http://homeassistant:8123 
-   -e HA_TOKEN=YOUR_LONG_LIVED_TOKEN 
-   -e LOXONE_HOST=loxone.local
-   -e LOXONE_USER=loxone_user
-   -e LOXONE_PASSWORD=loxone_password
-  ghcr.io/woziwrt/ha-loxone-bridge:runtime
+docker run -d \
+           --name ha-loxone-bridge \
+           -v /path/on/host/main.py:/app/main.py:ro \
+           -e HA_URL=http://homeassistant:8123 \
+           -e HA_TOKEN=YOUR_LONG_LIVED_TOKEN \
+           -e LOXONE_HOST=loxone.local \
+           -e LOXONE_USER=loxone_user \
+           -e LOXONE_PASSWORD=loxone_password \
+           ghcr.io/woziwrt/ha-loxone-bridge:runtime
 ``` 
 
 
@@ -93,15 +93,15 @@ This is the closest to how we run it on RB5009.
 Example:
 
 ```bash
-docker run -d 
---name ha-loxone-bridge 
--v /path/to/your/main.py:/app/main.py:ro 
--e HA_URL=http://homeassistant:8123 
--e HA_TOKEN=YOUR_LONG_LIVED_TOKEN 
--e LOXONE_HOST=loxone.local 
--e LOXONE_USER=loxone_user 
--e LOXONE_PASSWORD=loxone_password
-ghcr.io/woziwrt/ha-loxone-bridge:runtime
+docker run -d \ 
+           --name ha-loxone-bridge \ 
+           -v /path/to/your/main.py:/app/main.py:ro \ 
+           -e HA_URL=http://homeassistant:8123 \ 
+           -e HA_TOKEN=YOUR_LONG_LIVED_TOKEN \ 
+           -e LOXONE_HOST=loxone.local \ 
+           -e LOXONE_USER=loxone_user \ 
+           -e LOXONE_PASSWORD=loxone_password \
+           ghcr.io/woziwrt/ha-loxone-bridge:runtime
 ```
 
 
@@ -122,14 +122,14 @@ COPY main.py /app/main.py
 - Run it without mounting `main.py`:
 
 ```bash
-docker run -d 
---name ha-loxone-bridge 
--e HA_URL=http://homeassistant:8123 
--e HA_TOKEN=YOUR_LONG_LIVED_TOKEN 
--e LOXONE_HOST=loxone.local 
--e LOXONE_USER=loxone_user 
--e LOXONE_PASSWORD=loxone_password
-your-registry/ha-loxone-bridge:with-main
+docker run -d \ 
+          --name ha-loxone-bridge \ 
+          -e HA_URL=http://homeassistant:8123 \ 
+          -e HA_TOKEN=YOUR_LONG_LIVED_TOKEN \ 
+          -e LOXONE_HOST=loxone.local \ 
+          -e LOXONE_USER=loxone_user \ 
+          -e LOXONE_PASSWORD=loxone_password \
+          your-registry/ha-loxone-bridge:with-main
 ```
 
 
@@ -141,11 +141,11 @@ This repository will also include:
 
 - A GitHub Actions workflow that:
   - Uses an ARM-based runner.
-  - Builds a multi-architecture runtime image (amd64, arm64, arm).[web:21]
+  - Builds a multi-architecture runtime image (amd64, arm64, arm).
   - Runs a small smoke test: start a container with a simple test `main.py` and verify that it runs and exits cleanly.
 
 - Release builds:
-  - For selected tags, the workflow will publish runtime images to a container registry.[web:23]
+  - For selected tags, the workflow will publish runtime images to a container registry.
   - Users can pull these images directly without setting up any local build environment.
 
 The test scenario in CI will mirror the basic steps shown in this README, so if the workflow is green, the documented usage is expected to work as well.
@@ -167,7 +167,7 @@ If you want to use it with:
 you will need to:
 
 - Recreate the “host side” (container configuration / `docker run` / docker-compose) for your platform.
-- Adjust `main.py` to your own Home Assistant entities and Loxone setup.[web:26]
+- Adjust `main.py` to your own Home Assistant entities and Loxone setup.
 - Optionally, use the provided GitHub Actions workflow to build your own images.
 
 Think of this repository as a documented blueprint and toolbox, not as a one-click integration for every environment.
