@@ -35,6 +35,9 @@ Instead, the Docker image provides a runtime environment and expects you to moun
 
 ## RB5009 example: how we run it
 
+The RouterOS container commands shown here are examples only. Command syntax and
+available options may differ between RouterOS versions, so you may need to adapt them to your system.
+
 This project was originally designed and tested on a MikroTik RB5009, using RouterOS container functionality.
 
 Conceptually, the equivalent of `docker run` looks like this (simplified):

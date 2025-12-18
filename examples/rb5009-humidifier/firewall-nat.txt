@@ -1,0 +1,19 @@
+admin@MikroTik] > /ip/firewall/nat print
+Flags: X - disabled, I - invalid; D - dynamic 
+ 0    chain=srcnat action=masquerade out-interface=ether1 log=no log-prefix="" 
+
+ 1    ;;; HA container
+      chain=dstnat action=dst-nat to-addresses=172.18.0.2 to-ports=8123 protocol=tcp dst-address=10.33.1.222 dst-port=8123 
+
+ 2    ;;; HA-Loxone bridge
+      chain=dstnat action=dst-nat to-addresses=172.18.0.3 to-ports=5000 protocol=tcp dst-address=10.33.1.222 dst-port=5000 
+
+ 3    ;;; bridge-8000
+      chain=dstnat action=dst-nat to-addresses=172.18.0.3 to-ports=8000 protocol=tcp dst-address=10.33.1.222 dst-port=8000 
+
+ 4    ;;; bridge-slim-5001
+      chain=dstnat action=dst-nat to-addresses=172.18.0.3 to-ports=5001 protocol=tcp dst-address=10.33.1.222 dst-port=5001 
+
+ 5    ;;; bridge-5002
+      chain=dstnat action=dst-nat to-addresses=172.18.0.3 to-ports=5002 protocol=tcp dst-address=10.33.1.222 dst-port=5002 
+[admin@MikroTik] > 
