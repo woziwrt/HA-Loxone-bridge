@@ -17,6 +17,12 @@ It is not a universal “works with everything” solution, but a concrete, work
 
 In other words: this repo shows our working solution and gives you the tools and patterns to build your own.
 
+## Prerequisites
+
+- A running Home Assistant instance reachable from the bridge container.
+- A Loxone Miniserver with access to create virtual inputs/outputs.
+- Basic familiarity with Docker or MikroTik RouterOS container configuration.
+
 ## High-level architecture
 
 - Home Assistant runs in a container, reachable at `http://homeassistant:8123` (or similar), using the standard port 8123.  
@@ -35,21 +41,21 @@ Conceptually, the equivalent of `docker run` looks like this (simplified):
 
 ```bash
 docker run -d 
---name ha-loxone-bridge 
--v /path/on/host/main.py:/app/main.py:ro 
--e HA_URL=http://homeassistant:8123 
--e HA_TOKEN=YOUR_LONG_LIVED_TOKEN 
--e LOXONE_HOST=loxone.local 
--e LOXONE_USER=loxone_user 
--e LOXONE_PASSWORD=loxone_password 
-ghcr.io/woziwrt/ha-loxone-bridge:runtime
+   --name ha-loxone-bridge 
+   -v /path/on/host/main.py:/app/main.py:ro 
+   -e HA_URL=http://homeassistant:8123 
+   -e HA_TOKEN=YOUR_LONG_LIVED_TOKEN 
+   -e LOXONE_HOST=loxone.local
+   -e LOXONE_USER=loxone_user
+   -e LOXONE_PASSWORD=loxone_password
+  ghcr.io/woziwrt/ha-loxone-bridge:runtime
 ``` 
 
 
 On RB5009 this is configured via the RouterOS `/container` settings (environment, mounts, image), but the idea is the same:  
 use one stable runtime image, and keep your `main.py` and credentials on the host.
 
-> In the `examples/` folder you will find a concrete example configuration for RB5009 and a sample `main.py` for a humidifier.
+> In the `examples/` folder you will find a concrete example configuration for RB5009 and a sample `main.py` for a humidifier once it is added.
 
 ## Example bridge script (`main.py`)
 
@@ -94,7 +100,7 @@ docker run -d
 -e HA_TOKEN=YOUR_LONG_LIVED_TOKEN 
 -e LOXONE_HOST=loxone.local 
 -e LOXONE_USER=loxone_user 
--e LOXONE_PASSWORD=loxone_password 
+-e LOXONE_PASSWORD=loxone_password
 ghcr.io/woziwrt/ha-loxone-bridge:runtime
 ```
 
@@ -122,7 +128,7 @@ docker run -d
 -e HA_TOKEN=YOUR_LONG_LIVED_TOKEN 
 -e LOXONE_HOST=loxone.local 
 -e LOXONE_USER=loxone_user 
--e LOXONE_PASSWORD=loxone_password 
+-e LOXONE_PASSWORD=loxone_password
 your-registry/ha-loxone-bridge:with-main
 ```
 
