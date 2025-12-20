@@ -3,6 +3,21 @@
 This repository documents how we run a custom bridge between Loxone and Home Assistant inside containers on a MikroTik RB5009.  
 It is not a universal “works with everything” solution, but a concrete, working example you can adapt for your own setup.
 
+## Loxone humidifier integration
+
+Example of how the virtual inputs and outputs look in Loxone Config when using the HA‑Loxone‑bridge.
+
+### Virtual Inputs (humidifier status)
+
+![Loxone VI – Humidifier](docs/loxone-vi-humidifier.png)
+
+### Virtual Outputs (humidifier control)
+
+![Loxone VO – Humidifier](docs/loxone-vo-humidifier.png)
+
+All HTTP calls are local to the bridge service, so no Home Assistant bearer token is exposed in the Loxone project.
+
+
 ## What this project is (and is not)
 
 - It provides:
