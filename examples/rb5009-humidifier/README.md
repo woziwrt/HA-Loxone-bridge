@@ -57,7 +57,7 @@ Adjust:
   envlist=homeassistant-env \
   start-on-boot=yes
 ```
-## HAñLoxone bridge container
+## HA Loxone bridge container
 
 ```bash
  /container/add name=ha-loxone-bridge \
