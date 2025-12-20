@@ -105,7 +105,7 @@ There are two main ways to use this project:
 
 This is the closest to how we run it on RB5009.
 
-- Build or pull the runtime image (multi-arch build and releases will be provided later).[web:21]
+- Build or pull the runtime image (multi-arch build and releases will be provided later).
 - Prepare your own `main.py` based on the example provided.
 - Run the container with:
   - A bind mount for `main.py` into `/app/main.py`.
