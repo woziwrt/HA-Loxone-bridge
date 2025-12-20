@@ -1,6 +1,6 @@
 # RB5009 humidifier example
 
-This example shows how we run the HAñLoxone bridge for a single humidifier on a MikroTik RB5009 using RouterOS containers.
+This example shows how we run the HA Loxone bridge for a single humidifier on a MikroTik RB5009 using RouterOS containers.
 
 It is not a drop-in configuration. You are expected to adapt entity IDs, IP addresses and RouterOS commands to your own setup.
 
@@ -9,7 +9,7 @@ It is not a drop-in configuration. You are expected to adapt entity IDs, IP addr
 ## Overview
 
 - Home Assistant runs in a container, reachable as `http://homeassistant:8123`.
-- The HAñLoxone bridge runs in a separate container and mounts `main.py` from the host.
+- The HA Loxone bridge runs in a separate container and mounts `main.py` from the host.
 - `main.py` reads humidifier state from Home Assistant and can push data or commands to Loxone via virtual inputs/outputs.
 
 ## Example main.py
