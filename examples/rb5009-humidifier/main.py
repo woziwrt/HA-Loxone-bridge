@@ -5,7 +5,7 @@ import requests
 import traceback
 
 HA_URL = os.getenv("HA_URL", "http://172.18.0.2:8123")
-HA_TOKEN = os.getenv("HA_TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2NTU0NGExNzU4ODg0NzIwOTY3MjkwYjkwYzk4ZmNlYiIsImlhdCI6MTc2NTIxNzEwOSwiZXhwIjoyMDgwNTc3MTA5fQ.Ju8S0Q6fQbAgUrV_IWiusY_W_75TUafuBL1d1VVvqVo")
+HA_TOKEN = os.getenv("HA_TOKEN", "PUT_HERE_YOUR_HA_TOKEN")
 ENTITY_ID = os.getenv("ENTITY_ID", "humidifier.superior_6000s")
 
 app = Flask(__name__)
