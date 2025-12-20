@@ -1,6 +1,9 @@
 # HA–Loxone Bridge (RB5009 example)
 
-This repository documents how we run a custom bridge between Loxone and Home Assistant inside containers on a MikroTik RB5009.  
+This repository documents a working example of a custom bridge between Loxone and Home Assistant on a MikroTik RB5009, including a humidifier integration and Loxone VI/VO configuration.
+
+This repository documents how we run a custom bridge between Loxone and Home Assistant inside containers on a MikroTik RB5009.
+
 It is not a universal “works with everything” solution, but a concrete, working example you can adapt for your own setup.
 
 ## Loxone humidifier integration
@@ -190,6 +193,8 @@ you will need to:
 
 Think of this repository as a documented blueprint and toolbox, not as a one-click integration for every environment.
 
+## License
 
+This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
 
 
